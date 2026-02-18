@@ -6,7 +6,7 @@
 
 <style>
 body{
-    background:#dcdcdc;
+    background:white;
     font-family:굴림;
     margin:0;
 }
@@ -24,19 +24,31 @@ header{
     text-decoration:none;
 }
 
-.search{
+.searchbox{
     text-align:center;
     margin:20px;
 }
 
-.search input{
-    width:60%;
+.searchbox input{
+    width:50%;
     padding:10px;
     border:1px solid black;
 }
 
+.searchbox button{
+    padding:10px 20px;
+    border:1px solid black;
+    background:#eee;
+    cursor:pointer;
+}
+
+.resulttitle{
+    font-size:14px;
+    color:#555;
+    margin-bottom:10px;
+}
+
 main{
-    background:white;
     margin:20px;
     padding:15px;
     border:1px solid black;
@@ -46,7 +58,7 @@ main{
     display:flex;
     align-items:center;
     margin-bottom:15px;
-    border-bottom:1px dashed gray;
+    border-bottom:1px solid gray;
     padding-bottom:10px;
 }
 
@@ -72,33 +84,65 @@ main{
 <a href="index.html" class="logo">금산일보</a>
 </header>
 
-<div class="search">
-<input type="text" placeholder="검색어 입력">
+<div class="searchbox">
+<input type="text" id="searchInput" placeholder="검색어 입력" onkeypress="if(event.key==='Enter'){searchNews()}">
+<button onclick="searchNews()">검색</button>
 </div>
 
 <main>
 
-<div class="news">
+<div id="resultText" class="resulttitle"></div>
+
+<div class="news" data-title="임시뉴스 1">
 <a href="news1.html"><img></a>
 <a href="news1.html">임시뉴스 1</a>
 </div>
 
-<div class="news">
+<div class="news" data-title="임시뉴스 2">
 <a href="news2.html"><img></a>
 <a href="news2.html">임시뉴스 2</a>
 </div>
 
-<div class="news">
+<div class="news" data-title="임시뉴스 3">
 <a href="news3.html"><img></a>
 <a href="news3.html">임시뉴스 3</a>
 </div>
 
-<div class="news">
+<div class="news" data-title="임시뉴스 4">
 <a href="news4.html"><img></a>
 <a href="news4.html">임시뉴스 4</a>
 </div>
 
 </main>
+
+<script>
+function searchNews(){
+    let input=document.getElementById("searchInput").value.toLowerCase();
+    let news=document.querySelectorAll(".news");
+    let resultText=document.getElementById("resultText");
+
+    let found=false;
+
+    news.forEach(n=>{
+        let title=n.dataset.title.toLowerCase();
+        if(title.includes(input)){
+            n.style.display="flex";
+            found=true;
+        }else{
+            n.style.display="none";
+        }
+    });
+
+    if(input===""){
+        resultText.innerText="";
+    }
+    else if(found){
+        resultText.innerText="검색결과";
+    }else{
+        resultText.innerText="검색결과 없음";
+    }
+}
+</script>
 
 </body>
 </html>
