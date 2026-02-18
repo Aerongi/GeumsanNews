@@ -9,14 +9,12 @@ body{
     font-family:굴림;
 }
 
-/* 상단 바 */
 header{
     background:#990000;
     padding:10px;
-    border:3px solid black;
+    border:1px solid black;
 }
 
-/* 좌측 상단 사이트 이름 */
 .logo{
     font-weight:bold;
     font-size:28px;
@@ -27,21 +25,50 @@ header{
     text-decoration:none;
 }
 
-/* 검색창 */
 .searchbox{
     margin-top:10px;
+    text-align:center;
+}
+
+.searchbox input{
+    width:60%;
+    padding:5px;
 }
 
 main{
     background:white;
     margin-top:10px;
     padding:15px;
-    border:3px solid black;
+    border:1px solid black;
 }
 
-article{
-    margin-bottom:20px;
-    border-bottom:1px dashed gray;
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.card{
+    text-align:center;
+}
+
+.thumb{
+    width:100%;
+    height:120px;
+    background:#bbb;
+    border:1px solid black;
+}
+
+.card a{
+    text-decoration:none;
+    color:black;
+    font-weight:bold;
+}
+
+.article{
+    margin-top:40px;
+    border-top:1px dashed gray;
+    padding-top:20px;
 }
 
 footer{
@@ -58,7 +85,7 @@ footer{
 
 <header>
 <div class="logo">
-<a href="index.html">금산리 뉴스</a>
+<a href="#">금산리 뉴스</a>
 </div>
 
 <div class="searchbox">
@@ -69,15 +96,57 @@ footer{
 
 <main>
 
-<article>
-<h2>기사 제목</h2>
-<p>기사 내용 입력</p>
-</article>
+<div class="grid">
 
-<article>
-<h2>기사 제목</h2>
-<p>기사 내용 입력</p>
-</article>
+<div class="card">
+<a href="#news1">
+<div class="thumb"></div>
+<p>임시뉴스 1</p>
+</a>
+</div>
+
+<div class="card">
+<a href="#news2">
+<div class="thumb"></div>
+<p>임시뉴스 2</p>
+</a>
+</div>
+
+<div class="card">
+<a href="#news3">
+<div class="thumb"></div>
+<p>임시뉴스 3</p>
+</a>
+</div>
+
+<div class="card">
+<a href="#news4">
+<div class="thumb"></div>
+<p>임시뉴스 4</p>
+</a>
+</div>
+
+</div>
+
+<div id="news1" class="article">
+<h2>임시뉴스 1</h2>
+<p>기사 내용</p>
+</div>
+
+<div id="news2" class="article">
+<h2>임시뉴스 2</h2>
+<p>기사 내용</p>
+</div>
+
+<div id="news3" class="article">
+<h2>임시뉴스 3</h2>
+<p>기사 내용</p>
+</div>
+
+<div id="news4" class="article">
+<h2>임시뉴스 4</h2>
+<p>기사 내용</p>
+</div>
 
 </main>
 
@@ -87,4 +156,3 @@ footer{
 
 </body>
 </html>
-
